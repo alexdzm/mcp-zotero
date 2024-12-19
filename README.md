@@ -4,6 +4,8 @@
 
 A Model Context Protocol server for Zotero integration that allows Claude to interact with your Zotero library.
 
+<a href="https://glama.ai/mcp/servers/mjvu0xzzzz"><img width="380" height="200" src="https://glama.ai/mcp/servers/mjvu0xzzzz/badge" alt="Zotero MCP server" /></a>
+
 ## Setup
 
 1. Get your Zotero credentials:
