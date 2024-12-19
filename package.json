@@ -8,6 +8,13 @@
     "build": "tsc",
     "start": "node build/server.js"
   },
+  "bin": {
+    "mcp-zotero": "./build/server.js"
+  },
+  "files": [
+    "build",
+    "README.md"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
