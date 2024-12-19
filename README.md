@@ -48,16 +48,30 @@ A Model Context Protocol server for Zotero integration that allows Claude to int
 
    You should see your collections list in the response.
 
-4. Install the package:
+4. Install and run:
 
    ```bash
-   npm install mcp-zotero
-   ```
+   # Install globally (recommended)
+   npm install -g mcp-zotero
+   mcp-zotero
 
-5. Run the server:
-   ```bash
+   # Or run directly with npx
    npx mcp-zotero
    ```
+
+## Integration with Claude Desktop
+
+To use this server with Claude Desktop, add the following to your Claude Desktop configuration:
+
+```json
+{
+  "mcpServers": {
+    "zotero": {
+      "command": "mcp-zotero"
+    }
+  }
+}
+```
 
 ## Available Tools
 
@@ -66,3 +80,26 @@ A Model Context Protocol server for Zotero integration that allows Claude to int
 - `get_item_details`: Get detailed information about a paper
 - `search_library`: Search your entire library
 - `get_recent`: Get recently added papers
+
+## Troubleshooting
+
+If you encounter any issues:
+
+1. Verify your environment variables are set:
+
+   ```bash
+   echo $ZOTERO_API_KEY
+   echo $ZOTERO_USER_ID
+   ```
+
+2. Check the installation:
+
+   ```bash
+   npm list -g mcp-zotero
+   ```
+
+3. Try reinstalling:
+   ```bash
+   npm uninstall -g mcp-zotero
+   npm install -g mcp-zotero
+   ```

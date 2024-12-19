@@ -1,11 +1,12 @@
 {
   "name": "mcp-zotero",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "build": "tsc && chmod +x build/server.js",
+    "postbuild": "echo '#!/usr/bin/env node' | cat - build/server.js > temp && mv temp build/server.js",
     "start": "node build/server.js"
   },
   "bin": {
