@@ -1,7 +1,7 @@
 {
   "name": "mcp-zotero",
   "type": "module",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -21,10 +21,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "latest",
-    "zotero-api-client": "latest",
-    "zod": "latest",
-    "dotenv": "latest"
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "dotenv": "^16.4.7",
+    "zod": "^3.24.1",
+    "zotero-api-client": "^0.46.0"
   },
   "devDependencies": {
     "@types/node": "latest",

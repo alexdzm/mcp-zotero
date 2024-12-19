@@ -50,7 +50,6 @@ class ZoteroServer {
         "Missing ZOTERO_API_KEY or ZOTERO_USER_ID environment variables"
       );
     }
-    console.error("Environment variables loaded:", { userId: this.userId });
 
     const require = createRequire(import.meta.url);
     const zoteroApi = require("zotero-api-client/lib/main-node.cjs").default;
