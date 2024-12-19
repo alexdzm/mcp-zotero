@@ -1,6 +1,6 @@
 # MCP Zotero
 
-![NPM Version](https://img.shields.io/npm/v/:mcp-zotero)
+![NPM Version](https://img.shields.io/npm/v/mcp-zotero)
 
 A Model Context Protocol server for Zotero integration that allows Claude to interact with your Zotero library.
 
