@@ -67,7 +67,11 @@ To use this server with Claude Desktop, add the following to your Claude Desktop
 {
   "mcpServers": {
     "zotero": {
-      "command": "mcp-zotero"
+      "command": "mcp-zotero",
+      "env": {
+        "ZOTERO_API_KEY": YOUR_API_KEY,
+        "ZOTERO_USER_ID": YOUR_USER_ID
+      }
     }
   }
 }
