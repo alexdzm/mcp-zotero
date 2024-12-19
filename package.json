@@ -1,7 +1,7 @@
 {
   "name": "mcp-zotero",
   "type": "module",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "repository": {
     "type": "git",
     "url": "https://github.com/kaliaboi/mcp-zotero"
@@ -20,7 +20,13 @@
     "build",
     "README.md"
   ],
-  "keywords": [],
+  "keywords": [
+    "mcp",
+    "zotero",
+    "zotero-api",
+    "zotero-api-client",
+    "claude"
+  ],
   "author": "",
   "license": "ISC",
   "description": "",
