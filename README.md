@@ -48,20 +48,13 @@ A Model Context Protocol server for Zotero integration that allows Claude to int
 
    You should see your collections list in the response.
 
-4. Set environment variables:
-
-   ```bash
-   export ZOTERO_API_KEY="your-api-key"
-   export ZOTERO_USER_ID="your-user-id"
-   ```
-
-5. Install the package:
+4. Install the package:
 
    ```bash
    npm install mcp-zotero
    ```
 
-6. Run the server:
+5. Run the server:
    ```bash
    npx mcp-zotero
    ```
