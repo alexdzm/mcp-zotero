@@ -1,7 +1,11 @@
 {
   "name": "mcp-zotero",
   "type": "module",
-  "version": "1.0.3",
+  "version": "1.0.5",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kaliaboi/mcp-zotero"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
