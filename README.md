@@ -59,29 +59,6 @@ A Model Context Protocol server for Zotero integration that allows Claude to int
    npx mcp-zotero
    ```
 
-## Configure with Claude Desktop
-
-1. Open Claude Desktop
-2. Go to Settings (gear icon)
-3. Navigate to the "Model Context Protocol" section
-4. Click "Add Server"
-5. Fill in the details:
-   - Name: "Zotero"
-   - Description: "Access your Zotero library"
-   - Transport Type: "stdio"
-   - Command: `npx mcp-zotero`
-6. Click "Save"
-
-## Usage with Claude
-
-Once configured, you can ask Claude to:
-
-- "Show me my Zotero collections"
-- "What papers are in my [collection name] collection?"
-- "Tell me more about [paper title]"
-- "Search my library for papers about [topic]"
-- "What are my most recently added papers?"
-
 ## Available Tools
 
 - `get_collections`: List all collections in your library
