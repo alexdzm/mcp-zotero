@@ -1,113 +1,128 @@
 # MCP Zotero
 
-![NPM Version](https://img.shields.io/npm/v/mcp-zotero) [![smithery badge](https://smithery.ai/badge/mcp-zotero)](https://smithery.ai/server/mcp-zotero)
+A Model Context Protocol (MCP) integration for Zotero, allowing AI assistants to access and interact with your Zotero library.
 
-A Model Context Protocol server for Zotero integration that allows Claude to interact with your Zotero library.
+This Python implementation provides the same functionality as the original TypeScript version but uses the official [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk) for improved compatibility and maintainability.
 
-<a href="https://glama.ai/mcp/servers/mjvu0xzzzz"><img width="380" height="200" src="https://glama.ai/mcp/servers/mjvu0xzzzz/badge" alt="Zotero MCP server" /></a>
+## Features
 
-## Setup
+- List all collections in your Zotero library
+- Get all items in a specific collection
+- Get detailed information about a specific paper
+- Search your entire Zotero library
+- Get recently added papers to your library
 
-1. Get your Zotero credentials:
+## Installation
 
-   ```bash
-   # First, create an API key at https://www.zotero.org/settings/keys
-   # Then use it to get your user ID:
-   curl -H "Zotero-API-Key: YOUR_API_KEY" https://api.zotero.org/keys/current
-   ```
+### Using UV (Recommended)
 
-   The response will look like:
+This project uses [UV](https://github.com/astral-sh/uv), a modern Python package manager that is significantly faster than pip.
 
-   ```json
-   {
-     "userID": 123456,
-     "username": "your_username",
-     "access": {
-       "user": {
-         "library": true,
-         "files": true,
-         "notes": true,
-         "write": true
-       }
-     }
-   }
-   ```
+If you don't have UV installed:
 
-   The `userID` value is what you need.
-
-2. Set environment variables:
-
-   ```bash
-   export ZOTERO_API_KEY="your-api-key"
-   export ZOTERO_USER_ID="user-id-from-curl"
-   ```
-
-3. Verify your credentials:
-
-   ```bash
-   # Test that your credentials work:
-   curl -H "Zotero-API-Key: $ZOTERO_API_KEY" \
-        "https://api.zotero.org/users/$ZOTERO_USER_ID/collections"
-   ```
-
-   You should see your collections list in the response.
-
-4. Install and run:
-
-   ```bash
-   # Install globally (recommended)
-   npm install -g mcp-zotero
-   mcp-zotero
-
-   # Or run directly with npx
-   npx mcp-zotero
-   ```
-
-## Integration with Claude Desktop
-
-To use this server with Claude Desktop, add the following to your Claude Desktop configuration:
-
-```json
-{
-  "mcpServers": {
-    "zotero": {
-      "command": "mcp-zotero",
-      "env": {
-        "ZOTERO_API_KEY": YOUR_API_KEY,
-        "ZOTERO_USER_ID": YOUR_USER_ID
-      }
-    }
-  }
-}
+```bash
+# Install UV
+curl -sSf https://astral.sh/uv/install.sh | bash
 ```
 
-## Available Tools
+Install mcp-zotero with UV:
 
-- `get_collections`: List all collections in your library
-- `get_collection_items`: Get items in a specific collection
-- `get_item_details`: Get detailed information about a paper
-- `search_library`: Search your entire library
-- `get_recent`: Get recently added papers
+```bash
+# Create a virtual environment and install dependencies
+uv venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
-## Troubleshooting
+# Install dependencies
+uv pip install -e .
+```
 
-If you encounter any issues:
+### Using Pip (Alternative)
 
-1. Verify your environment variables are set:
+```bash
+# Create a virtual environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
-   ```bash
-   echo $ZOTERO_API_KEY
-   echo $ZOTERO_USER_ID
-   ```
+# Install dependencies
+pip install -e .
+```
 
-2. Check the installation:
+## Usage
 
-   ```bash
-   npm list -g mcp-zotero
-   ```
+1. Set up your environment variables:
 
-3. Try reinstalling:
-   ```bash
-   npm uninstall -g mcp-zotero
-   npm install -g mcp-zotero
-   ```
+```bash
+export ZOTERO_API_KEY="your_zotero_api_key"
+export ZOTERO_USER_ID="your_zotero_user_id"
+```
+
+2. Run the server:
+
+```bash
+# Using the MCP CLI
+mcp run src/server.py
+
+# Or directly
+python src/server.py
+```
+
+3. Integration with Claude Desktop:
+
+```bash
+# Install the server in Claude Desktop
+mcp install src/server.py --name "Zotero Library"
+
+# With environment variables
+mcp install src/server.py --name "Zotero Library" -v ZOTERO_API_KEY=your_key -v ZOTERO_USER_ID=your_id
+```
+
+## Docker
+
+You can also run using Docker:
+
+```bash
+docker build -t mcp-zotero-python .
+docker run -e ZOTERO_API_KEY="your_api_key" -e ZOTERO_USER_ID="your_user_id" mcp-zotero-python
+```
+
+## Development
+
+### Using UV for Development
+
+UV provides efficient workflow for Python development:
+
+```bash
+# Install in development mode
+uv pip install -e .
+
+# Install a specific version of a dependency
+uv pip install pydantic==2.5.2
+
+# Add a new dependency to pyproject.toml
+uv pip install some-package --upgrade-package
+```
+
+### Running with the MCP Development Tools
+
+```bash
+# Run with the MCP development tools for debugging
+mcp dev src/server.py
+
+# Run with the MCP development tools and edit mode
+mcp dev src/server.py --with-editable .
+```
+
+## Finding Your Zotero API Key and User ID
+
+### API Key
+1. Log in to your Zotero account at https://www.zotero.org/
+2. Go to Settings → API Keys
+3. Create a new private key with read-only permissions (or read/write if you plan to add functionality later)
+
+### User ID
+1. Go to https://www.zotero.org/settings/keys
+2. Your user ID is listed under "Your userID for use in API calls"
+
+## License
+
+ISC

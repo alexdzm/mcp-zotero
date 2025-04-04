@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-zotero"
+version = "1.0.6"
+description = "MCP integration for Zotero"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "ISC"}
+dependencies = [
+    "mcp>=1.6.0",
+    "pyzotero>=1.5.18",
+    "python-dotenv>=1.0.0",
+    "pydantic>=2.5.2",
+]
+
+[project.scripts]
+mcp-zotero = "src.server:main"
+
+[tool.uv]
+excludes = [] 
