@@ -29,22 +29,7 @@ Install mcp-zotero with UV:
 
 ```bash
 # Create a virtual environment and install dependencies
-uv venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-
-# Install dependencies
-uv pip install -e .
-```
-
-### Using Pip (Alternative)
-
-```bash
-# Create a virtual environment
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-
-# Install dependencies
-pip install -e .
+uv sync
 ```
 
 ## Usage
@@ -59,19 +44,13 @@ export ZOTERO_USER_ID="your_zotero_user_id"
 2. Run the server:
 
 ```bash
-# Using the MCP CLI
-mcp run src/server.py
 
-# Or directly
-python src/server.py
+uv run src/server.py
 ```
 
 3. Integration with Claude Desktop:
 
 ```bash
-# Install the server in Claude Desktop
-mcp install src/server.py --name "Zotero Library"
-
 # With environment variables
 mcp install src/server.py --name "Zotero Library" -v ZOTERO_API_KEY=your_key -v ZOTERO_USER_ID=your_id
 ```
