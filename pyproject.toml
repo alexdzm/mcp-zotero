@@ -14,6 +14,7 @@ dependencies = [
     "pyzotero>=1.5.18",
     "python-dotenv>=1.0.0",
     "pydantic>=2.5.2",
+    "arxiv-mcp-server",
 ]
 
 [project.scripts]
@@ -21,3 +22,6 @@ mcp-zotero = "src.server:main"
 
 [tool.uv]
 excludes = [] 
+
+[tool.uv.sources]
+arxiv-mcp-server = { path = "arxiv-mcp-server" }
